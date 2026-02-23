@@ -10,8 +10,8 @@
  <script>
         function creaEl(){
             for(var i=0;i<3;i++){
-            var elem=document.createElement('a');
-            elem.textContent="Ciao";
+            var elem=document.createElement('input');
+            elem.setAttribute('type','text');
             document.body.appendChild(elem);}
            var elem1=document.createElement('br');
             document.body.appendChild(elem1);
@@ -20,7 +20,7 @@
 <body>
     <h1>Benvenuti siuuuu</h1>
     <a href="tutorial.html" >Per il tutorial sui file json/csv clicca qui</a><br>
-    <button onclick="creaEl()">Crea nuovo</button>
+    <button onclick="creaEl()">Crea nuovo</button><br>
 </body>
 
 </html>
