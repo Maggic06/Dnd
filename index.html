@@ -11,6 +11,7 @@
         function creaEl(){
             for(var i=0;i<3;i++){
             var elem=document.createElement('a');
+                elem.textContent=id.innerHTML();
             document.body.appendChild(elem);}
            var elem1=document.createElement('br');
             document.body.appendChild(elem1);
@@ -19,7 +20,7 @@
 <body>
     <h1>Benvenuti siuuuu</h1>
     <a href="tutorial.html" >Per il tutorial sui file json/csv clicca qui</a><br>
-    <input type="text"></input>
+    <input type="text" id="id"></input>
     <input type="text"></input>
     <input type="text"></input><br>
     <button onclick="creaEl()">Crea nuovo</button><br>
