@@ -12,6 +12,7 @@
             var nome=document.getElementById("id1").value;
             var pf=document.getElementById("id2").value;
             var roll=document.getElementById("id3").value;
+            var ca=document.getElementById("id4").value;
             var tabella=document.getElementById("tabella").getElementsByTagName('tbody')[0];
             var rigaagg=tabella.insertRow();
             var nomeagg=rigaagg.insertCell(0);
@@ -21,7 +22,9 @@
             pfagg.textContent=pf;
             var rollagg=rigaagg.insertCell(2);
             rollagg.textContent=roll;
-            var funz=rigaagg.insertCell(3);
+            caagg=rigaagg.insertCell(3);
+            caagg.textContent=ca;
+            var funz=rigaagg.insertCell(4);
             var elem=document.createElement('input');
              elem.setAttribute('input','number');
              elem.setAttribute('class','inputvita');
@@ -49,10 +52,11 @@
 <body>
     <h1>Benvenuti siuuuu</h1>
     <a href="tutorial.html" >Per il tutorial sui file json/csv clicca qui</a><br>
-    <p>Se si volesse registrare un personaggio inserire / o un carattere a caso nei pf</p>
+    <p>Se si volesse registrare un personaggio inserire / o un carattere a caso nei pf o nella CA</p>
     <a>Inserisci nome creatura:</a><input type="text" id="id1"></input><br>
     <a>Inserisci punti ferita:</a><input type="text" id="id2"></input><br>
     <a>Inserisci Iniziativa</a><input type="number" id="id3"></input><br>
+     <a>Inserisci Armor class(CA)</a><input type="number" id="id4"></input><br>
     <button onclick="creaEl()">Crea nuovo</button><br>
         
         <table border="1px" id="tabella">
@@ -61,6 +65,7 @@
             <th>Nome Creatura</th>
             <th>Punti Ferita</th>
             <th>Roll Iniziativa</th>
+            <th>CA</th>
             <th>Modifica PF</th>
         </tr>
         </thead>
