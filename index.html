@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TieniConto</title>
+    <title>Document</title>
    
 </head>
  <script>
@@ -22,6 +22,7 @@
             pfagg.textContent=pf;
             var rollagg=rigaagg.insertCell(2);
             rollagg.textContent=roll;
+            rollagg.setAttribute("class","roll");
             caagg=rigaagg.insertCell(3);
             caagg.textContent=ca;
             var funz=rigaagg.insertCell(4);
@@ -33,6 +34,7 @@
             elem1.textContent="Calcola";
             elem1.setAttribute('onclick','sottrai(this)');
             funz.appendChild(elem1);}
+
         function sottrai(input){
             var riga=input.closest('tr');
             var cella=riga.querySelector('#pf');
@@ -48,6 +50,23 @@
                 cella.textContent=0;
             }
         }
+
+        function ordina(){
+            //var corpotab=document.getElementsByTagName("tbody");
+            var lista=document.querySelectorAll("tbody tr");
+            var array=Array.from(lista);
+            array.sort(function(rigaA,rigaB){
+                var testoA=rigaA.querySelector(".roll").textContent;
+                var testoB=rigaB.querySelector(".roll").textContent;
+                var valoreA=parseInt(testoA);
+                var valoreB=parseInt(testoB);
+                return valoreB-valoreA;
+            });
+            var corpotab=document.querySelector("tbody");
+            array.forEach(function(riga){
+                corpotab.append(riga);
+            })
+        }
     </script>
 <body>
     <h1>Benvenuti nel contacazzi</h1>
@@ -57,7 +76,7 @@
     <a>Inserisci punti ferita:</a><input type="text" id="id2"></input><br>
     <a>Inserisci Iniziativa</a><input type="number" id="id3"></input><br>
      <a>Inserisci Armor class(CA)</a><input type="number" id="id4"></input><br>
-    <button onclick="creaEl()">Crea nuovo</button><br>
+    <button onclick="creaEl()">Crea nuovo</button><button onclick="ordina()">Ordina per Iniziativa</button><br>
         
         <table border="1px" id="tabella">
             <thead>
