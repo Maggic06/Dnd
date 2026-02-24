@@ -9,10 +9,22 @@
 </head>
  <script>
         function creaEl(){
-            for(var i=0;i<3;i++){
+            
             var elem=document.createElement('a');
-                elem.textContent=id.innerHTML();
-            document.body.appendChild(elem);}
+            elem.textContent=document.getElementById("id1").value;
+            elem.textContent=elem.textContent+" ";
+            document.body.appendChild(elem);
+            
+            elem=document.createElement('a');
+            elem.textContent=document.getElementById("id2").value;
+            elem.textContent=elem.textContent+" ";
+            document.body.appendChild(elem);
+
+            elem=document.createElement('a');
+            elem.textContent=document.getElementById("id3").value;
+           elem.textContent=elem.textContent+" ";
+            document.body.appendChild(elem);
+            
            var elem1=document.createElement('br');
             document.body.appendChild(elem1);
         }
@@ -20,9 +32,9 @@
 <body>
     <h1>Benvenuti siuuuu</h1>
     <a href="tutorial.html" >Per il tutorial sui file json/csv clicca qui</a><br>
-    <input type="text" id="id"></input>
-    <input type="text"></input>
-    <input type="text"></input><br>
+    <input type="text" id="id1"></input>
+    <input type="text" id="id2"></input>
+    <input type="text" id="id3"></input><br>
     <button onclick="creaEl()">Crea nuovo</button><br>
 </body>
 
