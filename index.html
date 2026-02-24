@@ -9,33 +9,64 @@
 </head>
  <script>
         function creaEl(){
-            
-            var elem=document.createElement('a');
-            elem.textContent=document.getElementById("id1").value;
-            elem.textContent=elem.textContent+" ";
-            document.body.appendChild(elem);
-            
-            elem=document.createElement('a');
-            elem.textContent=document.getElementById("id2").value;
-            elem.textContent=elem.textContent+" ";
-            document.body.appendChild(elem);
-
-            elem=document.createElement('a');
-            elem.textContent=document.getElementById("id3").value;
-           elem.textContent=elem.textContent+" ";
-            document.body.appendChild(elem);
-            
-           var elem1=document.createElement('br');
-            document.body.appendChild(elem1);
+            var nome=document.getElementById("id1").value;
+            var pf=document.getElementById("id2").value;
+            var roll=document.getElementById("id3").value;
+            var tabella=document.getElementById("tabella").getElementsByTagName('tbody')[0];
+            var rigaagg=tabella.insertRow();
+            var nomeagg=rigaagg.insertCell(0);
+            nomeagg.textContent=nome;
+            var pfagg=rigaagg.insertCell(1);
+            pfagg.setAttribute("id","pf");
+            pfagg.textContent=pf;
+            var rollagg=rigaagg.insertCell(2);
+            rollagg.textContent=roll;
+            var funz=rigaagg.insertCell(3);
+            var elem=document.createElement('input');
+             elem.setAttribute('input','number');
+             elem.setAttribute('class','inputvita');
+             funz.appendChild(elem);
+            var elem1=document.createElement('Button');
+            elem1.textContent="Calcola";
+            elem1.setAttribute('onclick','sottrai(this)');
+            funz.appendChild(elem1);}
+        function sottrai(input){
+            var riga=input.closest('tr');
+            var cella=riga.querySelector('#pf');
+            cella2=cella.textContent;
+            var valdasott=riga.querySelector(".inputvita").value;
+            var cella2=parseInt(cella2);
+           if(isNaN(cella2)){return;}
+            var val=parseInt(valdasott);
+            var calcolata=cella2+val;
+            if(calcolata>=0){
+            cella.textContent=calcolata;}
+            else{
+                cella.textContent=0;
+            }
         }
     </script>
 <body>
     <h1>Benvenuti siuuuu</h1>
     <a href="tutorial.html" >Per il tutorial sui file json/csv clicca qui</a><br>
-    <input type="text" id="id1"></input>
-    <input type="text" id="id2"></input>
-    <input type="text" id="id3"></input><br>
+    <p>Se si volesse registrare un personaggio inserire / o un carattere a caso nei pf</p>
+    <a>Inserisci nome creatura:</a><input type="text" id="id1"></input><br>
+    <a>Inserisci punti ferita:</a><input type="text" id="id2"></input><br>
+    <a>Inserisci Iniziativa</a><input type="number" id="id3"></input><br>
     <button onclick="creaEl()">Crea nuovo</button><br>
+        
+        <table border="1px" id="tabella">
+            <thead>
+        <tr>
+            <th>Nome Creatura</th>
+            <th>Punti Ferita</th>
+            <th>Roll Iniziativa</th>
+            <th>Modifica PF</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+        
+        </table>
 </body>
 
 </html>
