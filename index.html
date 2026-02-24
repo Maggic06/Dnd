@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
+   <style>
+  .riga-evidenziata {
+    background-color: yellow; /* O il colore che preferisci */
+    transition: background-color 0.3s; /* Effetto sfumato morbido */
+  }
+</style>
 </head>
  <script>
         function creaEl(){
@@ -67,6 +72,41 @@
                 corpotab.append(riga);
             })
         }
+
+
+            /*var elem=document.createElement('a');
+            elem.textContent=document.getElementById("id1").value;
+            elem.textContent=elem.textContent+" ";
+            document.body.appendChild(elem);
+            
+            elem=document.createElement('a');
+            elem.textContent=document.getElementById("id2").value;
+            elem.textContent=elem.textContent+" ";
+            document.body.appendChild(elem);
+
+            elem=document.createElement('a');
+            elem.textContent=document.getElementById("id3").value;
+           elem.textContent=elem.textContent+" ";
+            document.body.appendChild(elem);
+
+           var elem1=document.createElement('br');
+            document.body.appendChild(elem1);*/
+        let indiceRigaAttuale = -1; 
+
+function segnaturno() {
+    const righe = document.querySelectorAll('tbody tr');
+    if (righe.length === 0) return; 
+    if (indiceRigaAttuale >= 0 && indiceRigaAttuale < righe.length) {
+        righe[indiceRigaAttuale].classList.remove('riga-evidenziata');
+    }
+
+    indiceRigaAttuale++;
+    if (indiceRigaAttuale >= righe.length) {
+        indiceRigaAttuale = 0;
+    }
+
+    righe[indiceRigaAttuale].classList.add('riga-evidenziata');
+}
     </script>
 <body>
     <h1>Benvenuti nel contacazzi</h1>
@@ -76,7 +116,7 @@
     <a>Inserisci punti ferita:</a><input type="text" id="id2"></input><br>
     <a>Inserisci Iniziativa</a><input type="number" id="id3"></input><br>
      <a>Inserisci Armor class(CA)</a><input type="number" id="id4"></input><br>
-    <button onclick="creaEl()">Crea nuovo</button><button onclick="ordina()">Ordina per Iniziativa</button><br>
+    <button onclick="creaEl()">Crea nuovo</button><button onclick="ordina()">Ordina per Iniziativa</button><button onclick="segnaturno()">Progredisci Turno</button><br>
         
         <table border="1px" id="tabella">
             <thead>
